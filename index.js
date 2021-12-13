@@ -555,144 +555,16 @@ QuickBooks.prototype.createVendorCredit = function(vendorCredit, callback) {
 
 
 
-/**
- * Retrieves the Account from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Account
- * @param  {function} callback - Callback function which is called with any error and the persistent Account
- */
-QuickBooks.prototype.getAccount = function(id, callback) {
-  module.read(this, 'account', id, callback)
-}
 
 /**
- * Retrieves the Attachable from QuickBooks
+ * Retrieves the object from QuickBooks
  *
- * @param  {string} Id - The Id of persistent Attachable
- * @param  {function} callback - Callback function which is called with any error and the persistent Attachable
+ * @param  {string} obj - The object to be retrieved
+ * @param  {string} Id - The Id of persistent object
+ * @param  {function} callback - Callback function which is called with any error and the persistent object
  */
-QuickBooks.prototype.getAttachable = function(id, callback) {
-  module.read(this, 'attachable', id, callback)
-}
-
-/**
- * Retrieves the Bill from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Bill
- * @param  {function} callback - Callback function which is called with any error and the persistent Bill
- */
-QuickBooks.prototype.getBill = function(id, callback) {
-  module.read(this, 'bill', id, callback)
-}
-
-/**
- * Retrieves the BillPayment from QuickBooks
- *
- * @param  {string} Id - The Id of persistent BillPayment
- * @param  {function} callback - Callback function which is called with any error and the persistent BillPayment
- */
-QuickBooks.prototype.getBillPayment = function(id, callback) {
-  module.read(this, 'billPayment', id, callback)
-}
-
-/**
- * Retrieves the Class from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Class
- * @param  {function} callback - Callback function which is called with any error and the persistent Class
- */
-QuickBooks.prototype.getClass = function(id, callback) {
-  module.read(this, 'class', id, callback)
-}
-
-/**
- * Retrieves the CompanyInfo from QuickBooks
- *
- * @param  {string} Id - The Id of persistent CompanyInfo
- * @param  {function} callback - Callback function which is called with any error and the persistent CompanyInfo
- */
-QuickBooks.prototype.getCompanyInfo = function(id, callback) {
-  module.read(this, 'companyInfo', id, callback)
-}
-
-/**
- * Retrieves the CompanyCurrency from QuickBooks
- *
- * @param  {string} Id - The Id of persistent CompanyCurrency
- * @param  {function} callback - Callback function which is called with any error and the persistent CompanyCurrency
- */
- QuickBooks.prototype.getCompanyCurrency = function(id, callback) {
-  module.read(this, 'companyCurrency', id, callback)
-}
-
-/**
- * Retrieves the CreditMemo from QuickBooks
- *
- * @param  {string} Id - The Id of persistent CreditMemo
- * @param  {function} callback - Callback function which is called with any error and the persistent CreditMemo
- */
-QuickBooks.prototype.getCreditMemo = function(id, callback) {
-  module.read(this, 'creditMemo', id, callback)
-}
-
-/**
- * Retrieves the Customer from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Customer
- * @param  {function} callback - Callback function which is called with any error and the persistent Customer
- */
-QuickBooks.prototype.getCustomer = function(id, callback) {
-  module.read(this, 'customer', id, callback)
-}
-
-/**
- * Retrieves the CustomerType from QuickBooks
- *
- * @param  {string} Id - The Id of persistent CustomerType
- * @param  {function} callback - Callback function which is called with any error and the persistent CustomerType
- */
-QuickBooks.prototype.getCustomerType = function(id, callback) {
-  module.read(this, 'customerType', id, callback)
-}
-
-/**
- * Retrieves the Department from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Department
- * @param  {function} callback - Callback function which is called with any error and the persistent Department
- */
-QuickBooks.prototype.getDepartment = function(id, callback) {
-  module.read(this, 'department', id, callback)
-}
-
-/**
- * Retrieves the Deposit from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Deposit
- * @param  {function} callback - Callback function which is called with any error and the persistent Deposit
- */
-QuickBooks.prototype.getDeposit = function(id, callback) {
-  module.read(this, 'deposit', id, callback)
-}
-
-/**
- * Retrieves the Employee from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Employee
- * @param  {function} callback - Callback function which is called with any error and the persistent Employee
- */
-QuickBooks.prototype.getEmployee = function(id, callback) {
-  module.read(this, 'employee', id, callback)
-}
-
-/**
- * Retrieves the Estimate from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Estimate
- * @param  {function} callback - Callback function which is called with any error and the persistent Estimate
- */
-QuickBooks.prototype.getEstimate = function(id, callback) {
-  module.read(this, 'estimate', id, callback)
+QuickBooks.prototype.get = function(obj, id, callback) {
+  module.read(this, obj, id, callback)
 }
 
 /**
@@ -732,16 +604,6 @@ QuickBooks.prototype.sendEstimatePdf = function(id, sendTo, callback) {
     path += '?sendTo=' + sendTo
   }
   module.request(this, 'post', {url: path}, null, module.unwrap(callback, 'Estimate'))
-}
-
-/**
- * Retrieves the Invoice from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Invoice
- * @param  {function} callback - Callback function which is called with any error and the persistent Invoice
- */
-QuickBooks.prototype.getInvoice = function(id, callback) {
-  module.read(this, 'invoice', id, callback)
 }
 
 /**
@@ -789,115 +651,6 @@ QuickBooks.prototype.sendPurchaseOrder = function(id, sendTo, callback) {
 }
 
 /**
- * Retrieves the Item from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Item
- * @param  {function} callback - Callback function which is called with any error and the persistent Item
- */
-QuickBooks.prototype.getItem = function(id, callback) {
-  module.read(this, 'item', id, callback)
-}
-
-/**
- * Retrieves the JournalCode from QuickBooks
- *
- * @param  {string} Id - The Id of persistent JournalCode
- * @param  {function} callback - Callback function which is called with any error and the persistent JournalCode
- */
-QuickBooks.prototype.getJournalCode = function(id, callback) {
-  module.read(this, 'journalCode', id, callback)
-}
-
-/**
- * Retrieves the JournalEntry from QuickBooks
- *
- * @param  {string} Id - The Id of persistent JournalEntry
- * @param  {function} callback - Callback function which is called with any error and the persistent JournalEntry
- */
-QuickBooks.prototype.getJournalEntry = function(id, callback) {
-  module.read(this, 'journalEntry', id, callback)
-}
-
-/**
- * Retrieves the Payment from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Payment
- * @param  {function} callback - Callback function which is called with any error and the persistent Payment
- */
-QuickBooks.prototype.getPayment = function(id, callback) {
-  module.read(this, 'payment', id, callback)
-}
-
-/**
- * Retrieves the PaymentMethod from QuickBooks
- *
- * @param  {string} Id - The Id of persistent PaymentMethod
- * @param  {function} callback - Callback function which is called with any error and the persistent PaymentMethod
- */
-QuickBooks.prototype.getPaymentMethod = function(id, callback) {
-  module.read(this, 'paymentMethod', id, callback)
-}
-
-/**
- * Retrieves the Preferences from QuickBooks
- *
- * @param  {function} callback - Callback function which is called with any error and the persistent Preferences
- */
-QuickBooks.prototype.getPreferences = function(callback) {
-  module.read(this, 'preferences', null, callback)
-}
-
-/**
- * Retrieves the Purchase from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Purchase
- * @param  {function} callback - Callback function which is called with any error and the persistent Purchase
- */
-QuickBooks.prototype.getPurchase = function(id, callback) {
-  module.read(this, 'purchase', id, callback)
-}
-
-/**
- * Retrieves the PurchaseOrder from QuickBooks
- *
- * @param  {string} Id - The Id of persistent PurchaseOrder
- * @param  {function} callback - Callback function which is called with any error and the persistent PurchaseOrder
- */
-QuickBooks.prototype.getPurchaseOrder = function(id, callback) {
-  module.read(this, 'purchaseOrder', id, callback)
-}
-
-/**
- * Retrieves the RefundReceipt from QuickBooks
- *
- * @param  {string} Id - The Id of persistent RefundReceipt
- * @param  {function} callback - Callback function which is called with any error and the persistent RefundReceipt
- */
-QuickBooks.prototype.getRefundReceipt = function(id, callback) {
-  module.read(this, 'refundReceipt', id, callback)
-}
-
-/**
- * Retrieves the Reports from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Reports
- * @param  {function} callback - Callback function which is called with any error and the persistent Reports
- */
-QuickBooks.prototype.getReports = function(id, callback) {
-  module.read(this, 'reports', id, callback)
-}
-
-/**
- * Retrieves the SalesReceipt from QuickBooks
- *
- * @param  {string} Id - The Id of persistent SalesReceipt
- * @param  {function} callback - Callback function which is called with any error and the persistent SalesReceipt
- */
-QuickBooks.prototype.getSalesReceipt = function(id, callback) {
-  module.read(this, 'salesReceipt', id, callback)
-}
-
-/**
  * Retrieves the SalesReceipt PDF from QuickBooks
  *
  * @param  {string} Id - The Id of persistent SalesReceipt
@@ -922,86 +675,6 @@ QuickBooks.prototype.sendSalesReceiptPdf = function(id, sendTo, callback) {
     path += '?sendTo=' + sendTo
   }
   module.request(this, 'post', {url: path}, null, module.unwrap(callback, 'SalesReceipt'))
-}
-
-/**
- * Retrieves the TaxAgency from QuickBooks
- *
- * @param  {string} Id - The Id of persistent TaxAgency
- * @param  {function} callback - Callback function which is called with any error and the persistent TaxAgency
- */
-QuickBooks.prototype.getTaxAgency = function(id, callback) {
-  module.read(this, 'taxAgency', id, callback)
-}
-
-/**
- * Retrieves the TaxCode from QuickBooks
- *
- * @param  {string} Id - The Id of persistent TaxCode
- * @param  {function} callback - Callback function which is called with any error and the persistent TaxCode
- */
-QuickBooks.prototype.getTaxCode = function(id, callback) {
-  module.read(this, 'taxCode', id, callback)
-}
-
-/**
- * Retrieves the TaxRate from QuickBooks
- *
- * @param  {string} Id - The Id of persistent TaxRate
- * @param  {function} callback - Callback function which is called with any error and the persistent TaxRate
- */
-QuickBooks.prototype.getTaxRate = function(id, callback) {
-  module.read(this, 'taxRate', id, callback)
-}
-
-/**
- * Retrieves the Term from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Term
- * @param  {function} callback - Callback function which is called with any error and the persistent Term
- */
-QuickBooks.prototype.getTerm = function(id, callback) {
-  module.read(this, 'term', id, callback)
-}
-
-/**
- * Retrieves the TimeActivity from QuickBooks
- *
- * @param  {string} Id - The Id of persistent TimeActivity
- * @param  {function} callback - Callback function which is called with any error and the persistent TimeActivity
- */
-QuickBooks.prototype.getTimeActivity = function(id, callback) {
-  module.read(this, 'timeActivity', id, callback)
-}
-
-/**
- * Retrieves the Transfer from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Term
- * @param  {function} callback - Callback function which is called with any error and the persistent Transfer
- */
-QuickBooks.prototype.getTransfer = function(id, callback) {
-  module.read(this, 'transfer', id, callback)
-}
-
-/**
- * Retrieves the Vendor from QuickBooks
- *
- * @param  {string} Id - The Id of persistent Vendor
- * @param  {function} callback - Callback function which is called with any error and the persistent Vendor
- */
-QuickBooks.prototype.getVendor = function(id, callback) {
-  module.read(this, 'vendor', id, callback)
-}
-
-/**
- * Retrieves the VendorCredit from QuickBooks
- *
- * @param  {string} Id - The Id of persistent VendorCredit
- * @param  {function} callback - Callback function which is called with any error and the persistent VendorCredit
- */
-QuickBooks.prototype.getVendorCredit = function(id, callback) {
-  module.read(this, 'vendorCredit', id, callback)
 }
 
 
