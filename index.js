@@ -119,6 +119,7 @@ function QuickBooks(consumerKey, consumerSecret, token, tokenSecret, realmId, us
   }
 }
 
+
 /**
  *
  * Use the refresh token to obtain a new access token.
@@ -126,7 +127,7 @@ function QuickBooks(consumerKey, consumerSecret, token, tokenSecret, realmId, us
  *
  */
 
-QuickBooks.prototype.refreshAccessToken = function(callback) {
+QuickBooks.prototype.refreshAccessToken = Promise.promisify(function(callback) {
     var auth = (new Buffer(this.consumerKey + ':' + this.consumerSecret).toString('base64'));
 
     var postBody = {
@@ -152,7 +153,7 @@ QuickBooks.prototype.refreshAccessToken = function(callback) {
             if (callback) callback(e, r, data);
         }
     }).bind(this));
-};
+});
 
 /**
  * Use either refresh token or access token to revoke access (OAuth2).
