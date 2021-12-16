@@ -280,9 +280,9 @@ QuickBooks.prototype.upload = function(filename, contentType, stream, entityType
  * @param  {string} Id - The Id of persistent object
  * @param  {function} callback - Callback function which is called with any error and the persistent object
  */
-QuickBooks.prototype.get = function(obj, id, callback) {
+QuickBooks.prototype.get = promisify(function(obj, id, callback) {
   module.read(this, obj, id, callback)
-}
+});
 
 /**
  * Retrieves an ExchangeRate from QuickBooks
