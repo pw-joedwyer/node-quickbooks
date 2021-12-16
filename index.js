@@ -281,7 +281,7 @@ QuickBooks.prototype.upload = function(filename, contentType, stream, entityType
  * @param  {function} callback - Callback function which is called with any error and the persistent object
  */
 QuickBooks.prototype.get = function(obj, id, callback) {
-  promisify(module.read(this, obj, id, callback));
+  Promise.promisify(module.read(this, obj, id, callback));
 }
 
 /**
